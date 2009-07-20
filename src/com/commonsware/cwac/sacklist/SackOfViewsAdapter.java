@@ -80,6 +80,7 @@ public class SackOfViewsAdapter extends BaseAdapter {
 		* position in the data set.
 		* @param position Position of the item whose data we want
     */
+	@Override
 	public Object getItem(int position) {
 		return(views.get(position));
 	}
@@ -88,6 +89,7 @@ public class SackOfViewsAdapter extends BaseAdapter {
 		* How many items are in the data set represented by this
 		* Adapter.
     */
+	@Override
 	public int getCount() {
 		return(views.size());
 	}
@@ -96,6 +98,7 @@ public class SackOfViewsAdapter extends BaseAdapter {
 		* Returns the number of types of Views that will be
 		* created by getView().
     */
+	@Override
 	public int getViewTypeCount() {
 		return(getCount());
 	}
@@ -105,6 +108,7 @@ public class SackOfViewsAdapter extends BaseAdapter {
 		* for the specified item.
 		* @param position Position of the item whose data we want
     */
+	@Override
 	public int getItemViewType(int position) {
 		return(position);
 	}
@@ -113,7 +117,8 @@ public class SackOfViewsAdapter extends BaseAdapter {
 		* Are all items in this ListAdapter enabled? If yes it
 		* means all items are selectable and clickable.
     */
-	public boolean areAllItemsSelectable() {
+	@Override
+	public boolean areAllItemsEnabled() {
 		return(false);
 	}
 
@@ -122,6 +127,7 @@ public class SackOfViewsAdapter extends BaseAdapter {
 		* not a separator.
 		* @param position Position of the item whose data we want
     */
+	@Override
 	public boolean isEnabled(int position) {
 		return(false);
 	}
