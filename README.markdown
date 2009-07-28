@@ -22,8 +22,40 @@ it has greater benefit.
 
 Usage
 -----
-Full instructions for using this module are forthcoming. Stay
-tuned!
+You can use `SackOfViewsAdapter` directly or subclass it. The
+latter is needed to support on-demand row creation or controlling
+which rows are/are not enabled.
+
+### Constructors
+
+`SackOfViewsAdapter` either takes a count or a `List` of `View` objects
+as parameters. In the first case, the count indicates how many
+total rows there will be. If you choose to pass in a `List`,
+and you want to add to it later on, make sure it is a mutable
+list (e.g., created by new `ArrayList<View>()`).
+
+### Defining Views at Runtime
+
+If you pass in just a count of rows in the constructor, you
+need to extend `SackOfViewsAdapter` and override `newView()`,
+to return a row `View` given a position and the `ViewGroup` that
+is the row's parent (e.g., a `ListView`). `SackOfViewsAdapter`
+will then hang onto that row and return it to Android whenever
+that position is requested.
+
+If you pass in a `List` of `View` objects in the constructor,
+some of those positions in the list can be `null`. In that case,
+you again have to extend `SackOfViewsAdapter` and override
+`newView()`, but you will only be called for those rows
+initially defined as `null`.
+
+### Other Methods to Override
+
+You are welcome to override other methods as well, since this
+is just an `Adapter`. In particular, if all rows are not
+enabled for selection, you will want to override `isEnabled()`
+and return `true` or `false` as needed to indicate which rows are
+selectable and which are not (e.g., header rows).
 
 Dependencies
 ------------
