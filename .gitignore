@@ -4,3 +4,7 @@ gen/
 tests/bin/
 tests/gen/
 tests/local.properties
+parcel/
+demo/libs/
+demo/parcels/
+*~

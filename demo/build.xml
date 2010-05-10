@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="." default="help">
+<project name="SackOfViewsDemo" default="help">
 
     <!-- The local.properties file is created and updated by the 'android' tool.
          It contains the path to the SDK. It should *NOT* be checked in in Version
@@ -64,44 +64,14 @@
     -->
     <setup />
     
-    <property environment="env"/>
-    <property file="parcel.properties" />
-
-    <target name="jar" depends="compile">
-        <jar
-            destfile="bin/CWAC-SackOfViewsAdapter.jar"
-            basedir="bin/classes"
-        />
-    </target>
-    
-    <target name="clean">
-        <delete includeemptydirs="true">
-            <fileset dir="bin" includes="**/*"/>
-        </delete>
-        <delete includeemptydirs="true">
-            <fileset dir="gen" includes="**/*"/>
-        </delete>
-    </target>
-    
-    <target name="parcel" depends="jar">
+    <target name="prep">
         <exec executable="parcel">
-            <arg value="package" />
-            <arg value="parcel.json" />
-            <arg value="--dir" />
-            <arg value="parcel" />
-            <arg value="-j" />
-            <arg value="bin/CWAC-SackOfViewsAdapter.jar" />
-            <arg value="-d" />
-            <arg value="README.markdown" />
-            <arg value="LICENSE" />
+            <arg value="install" />
+            <arg value="../parcel/cwac-sacklist_0.1.0.zip" />
+            <arg value="--replace" />
         </exec>
     </target>
-
-    <target name="lint">
-        <exec executable="parcel">
-            <arg value="lint" />
-            <arg value="parcel.json" />
-        </exec>
-    </target>
-
+    
+    <target name="demo" depends="prep,install" />
+    
 </project>

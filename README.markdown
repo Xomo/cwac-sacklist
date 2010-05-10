@@ -20,6 +20,9 @@ While standalone, this is not terribly useful, in conjunction
 with other adapters, perhaps other ones in the CWAC collection,
 it has greater benefit.
 
+This is available from [the Android Parcel Project](http://andparcel.com) as the
+`cwac-sacklist` parcel.
+
 Usage
 -----
 You can use `SackOfViewsAdapter` directly or subclass it. The
@@ -63,8 +66,8 @@ None at present.
 
 Version
 -------
-This is version 0.1 of this module, meaning it is pretty darn
-new.
+This is version 0.2 of this module, meaning it is new, but not as
+new as it used to be.
 
 Demo
 ----
@@ -86,5 +89,9 @@ Questions
 If you have questions regarding the use of this code, please
 join and ask them on the [cw-android Google Group][gg]. Be sure to
 indicate which CWAC module you have questions about.
+
+Who Made This?
+--------------
+<a href="http://commonsware.com">![CommonsWare](http://commonsware.com/images/logo.png)</a>
 
 [gg]: http://groups.google.com/group/cw-android
