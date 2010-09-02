@@ -63,45 +63,62 @@
          build steps are used.
     -->
     <setup />
-    
-    <property environment="env"/>
-    <property file="parcel.properties" />
+
+    <target name="dist-dir">
+        <mkdir dir="dist"/>
+    </target>
+
+    <target name="dist-full" depends="dist-dir">
+        <delete file="dist/CWAC-WakefulIntentService-full.zip" />
+        <zip destfile="dist/CWAC-WakefulIntentService-full.zip">
+            <zipfileset
+                dir="."
+                prefix="CWAC-WakefulIntentService"
+                includes="**"
+                excludes="bin/**, dist/**, gen/**, .git/**, .gitignore, demo/bin/**, demo/gen/**"
+            />
+        </zip>
+    </target>
+
+    <target name="dist-lite" depends="dist-dir">
+        <delete file="dist/CWAC-WakefulIntentService-lite.zip" />
+        <zip destfile="dist/CWAC-WakefulIntentService-lite.zip">
+            <zipfileset
+                dir="."
+                prefix="CWAC-WakefulIntentService"
+                includes="**"
+                excludes="bin/**, dist/**, gen/**, .git/**, .gitignore, demo/**"
+            />
+        </zip>
+    </target>
 
     <target name="jar" depends="compile">
         <jar
-            destfile="bin/CWAC-SackOfViewsAdapter.jar"
+            destfile="bin/CWAC-WakefulIntentService.jar"
             basedir="bin/classes"
         />
     </target>
-    
-    <target name="clean">
-        <delete includeemptydirs="true">
-            <fileset dir="bin" includes="**/*"/>
-        </delete>
-        <delete includeemptydirs="true">
-            <fileset dir="gen" includes="**/*"/>
-        </delete>
-    </target>
-    
-    <target name="parcel" depends="jar">
-        <exec executable="parcel">
-            <arg value="package" />
-            <arg value="parcel.json" />
-            <arg value="--dir" />
-            <arg value="parcel" />
-            <arg value="-j" />
-            <arg value="bin/CWAC-SackOfViewsAdapter.jar" />
-            <arg value="-d" />
-            <arg value="README.markdown" />
-            <arg value="LICENSE" />
-        </exec>
-    </target>
 
-    <target name="lint">
-        <exec executable="parcel">
-            <arg value="lint" />
-            <arg value="parcel.json" />
-        </exec>
+    <target name="dist-jar" depends="dist-dir, jar">
+        <delete file="dist/CWAC-WakefulIntentService-jar.zip" />
+        <copy file="bin/CWAC-WakefulIntentService.jar" todir="libs"/>
+        <mkdir dir="tmp" />
+        <mkdir dir="tmp/src" />
+        <zip destfile="dist/CWAC-WakefulIntentService-jar.zip">
+            <zipfileset
+                dir="."
+                prefix="CWAC-WakefulIntentService"
+                includes="**"
+                excludes="tmp/**, bin/**, dist/**, gen/**, .git/**, src/**, .gitignore, demo/**"
+            />
+            <zipfileset
+                dir="tmp"
+                prefix="CWAC-WakefulIntentService"
+                includes="src/"
+            />
+        </zip>
+        <delete dir="tmp"/>
+        <delete file="libs/CWAC-WakefulIntentService.jar" />
     </target>
 
 </project>

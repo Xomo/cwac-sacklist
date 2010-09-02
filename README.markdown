@@ -8,7 +8,7 @@ However, they only work if you have not yet set your own
 adapter and are therefore not terribly flexible.
 
 The `SackOfViewsAdapter` is another way of approaching this.
-Here, you provide the Views that make up the rows, and the
+Here, you provide the `Views` that make up the rows, and the
 adapter feeds them to Android as if they were newly created.
 
 The `SackOfViewsAdapter` is designed to be subclassed, mostly
@@ -20,8 +20,9 @@ While standalone, this is not terribly useful, in conjunction
 with other adapters, perhaps other ones in the CWAC collection,
 it has greater benefit.
 
-This is available from [the Android Parcel Project](http://andparcel.com) as the
-`cwac-sacklist` parcel.
+This is packaged as an Android library project, though a simple
+JAR is also available from the Downloads section of this
+GitHub repository.
 
 Usage
 -----
@@ -66,17 +67,13 @@ None at present.
 
 Version
 -------
-This is version 0.2 of this module, meaning it is new, but not as
+This is version v0.3.0 of this module, meaning it is new, but not as
 new as it used to be.
 
 Demo
 ----
-In the `com.commonsware.cwac.sacklist.demo` package you will find
+In the `demo/` sub-project you will find
 a sample activity that demonstrates the use of `SackOfViewsAdapter`.
-
-Note that when you build the JAR via `ant jar`, the sample
-activity is not included, nor any resources -- only the
-compiled classes for the actual library are put into the JAR.
 
 License
 -------
@@ -89,6 +86,10 @@ Questions
 If you have questions regarding the use of this code, please
 join and ask them on the [cw-android Google Group][gg]. Be sure to
 indicate which CWAC module you have questions about.
+
+Release Notes
+-------------
+v0.3.0: converted to Android library project
 
 Who Made This?
 --------------
