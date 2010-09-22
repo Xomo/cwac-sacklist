@@ -67,7 +67,7 @@ None at present.
 
 Version
 -------
-This is version v0.3.0 of this module, meaning it is new, but not as
+This is version v0.3.1 of this module, meaning it is new, but not as
 new as it used to be.
 
 Demo
@@ -89,6 +89,7 @@ indicate which CWAC module you have questions about.
 
 Release Notes
 -------------
+v0.3.1: fixed copy-and-paste error in build.xml
 v0.3.0: converted to Android library project
 
 Who Made This?

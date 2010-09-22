@@ -69,11 +69,11 @@
     </target>
 
     <target name="dist-full" depends="dist-dir">
-        <delete file="dist/CWAC-WakefulIntentService-full.zip" />
-        <zip destfile="dist/CWAC-WakefulIntentService-full.zip">
+        <delete file="dist/CWAC-SackOfViewsAdapter-full.zip" />
+        <zip destfile="dist/CWAC-SackOfViewsAdapter-full.zip">
             <zipfileset
                 dir="."
-                prefix="CWAC-WakefulIntentService"
+                prefix="CWAC-SackOfViewsAdapter"
                 includes="**"
                 excludes="bin/**, dist/**, gen/**, .git/**, .gitignore, demo/bin/**, demo/gen/**"
             />
@@ -81,11 +81,11 @@
     </target>
 
     <target name="dist-lite" depends="dist-dir">
-        <delete file="dist/CWAC-WakefulIntentService-lite.zip" />
-        <zip destfile="dist/CWAC-WakefulIntentService-lite.zip">
+        <delete file="dist/CWAC-SackOfViewsAdapter-lite.zip" />
+        <zip destfile="dist/CWAC-SackOfViewsAdapter-lite.zip">
             <zipfileset
                 dir="."
-                prefix="CWAC-WakefulIntentService"
+                prefix="CWAC-SackOfViewsAdapter"
                 includes="**"
                 excludes="bin/**, dist/**, gen/**, .git/**, .gitignore, demo/**"
             />
@@ -94,31 +94,31 @@
 
     <target name="jar" depends="compile">
         <jar
-            destfile="bin/CWAC-WakefulIntentService.jar"
+            destfile="bin/CWAC-SackOfViewsAdapter.jar"
             basedir="bin/classes"
         />
     </target>
 
     <target name="dist-jar" depends="dist-dir, jar">
-        <delete file="dist/CWAC-WakefulIntentService-jar.zip" />
-        <copy file="bin/CWAC-WakefulIntentService.jar" todir="libs"/>
+        <delete file="dist/CWAC-SackOfViewsAdapter-jar.zip" />
+        <copy file="bin/CWAC-SackOfViewsAdapter.jar" todir="libs"/>
         <mkdir dir="tmp" />
         <mkdir dir="tmp/src" />
-        <zip destfile="dist/CWAC-WakefulIntentService-jar.zip">
+        <zip destfile="dist/CWAC-SackOfViewsAdapter-jar.zip">
             <zipfileset
                 dir="."
-                prefix="CWAC-WakefulIntentService"
+                prefix="CWAC-SackOfViewsAdapter"
                 includes="**"
                 excludes="tmp/**, bin/**, dist/**, gen/**, .git/**, src/**, .gitignore, demo/**"
             />
             <zipfileset
                 dir="tmp"
-                prefix="CWAC-WakefulIntentService"
+                prefix="CWAC-SackOfViewsAdapter"
                 includes="src/"
             />
         </zip>
         <delete dir="tmp"/>
-        <delete file="libs/CWAC-WakefulIntentService.jar" />
+        <delete file="libs/CWAC-SackOfViewsAdapter.jar" />
     </target>
 
 </project>
